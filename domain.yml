@@ -1,0 +1,83 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_medicine_info
+  - check_inventory
+  - provide_prescription
+
+entities:
+  - medicine_name
+
+slots:
+  medicine_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: medicine_name    
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+  - text: "Hello! How can I assist you today?"
+
+  utter_affirm:
+    - text: "Great! Let me know if there’s anything else I can help you with."
+
+  utter_deny:
+    - text: "Alright, let me know if you need help with anything else."
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_bot_challenge:
+    - text: "I’m a virtual assistant here to help you."
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_mood_unhappy:
+    - text: "I'm sorry to hear that. How can I make your day better?"
+    - text: "Cheer up! I'm here to help you."
+
+  utter_mood_great:
+    - text: "That's awesome to hear! 😊"
+    - text: "I'm glad you're having a great day!"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+  - text: "Goodbye! Take care!"
+  - text: "See you later! Have a great day!"
+
+  utter_medicine_info:
+    - text: "Here is the information about medicines for sleep: Melatonin, Diphenhydramine, and Zolpidem."
+    - text: "{medicine_name} is commonly used for pain relief, fever, or related conditions."
+
+  utter_inventory_status:
+    - text: "{medicine_name} is in stock with {quantity} units."
+    - text: "I'm sorry, {medicine_name} is currently out of stock."
+
+  utter_ask_prescription:
+    - text: "Please upload your prescription for {medicine_name}."
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+actions:
+  - action_check_inventory
+  - action_provide_medicine_info
+
+session_config:
+  session_expiration_time: 5
+  carry_over_slots_to_new_session: true
