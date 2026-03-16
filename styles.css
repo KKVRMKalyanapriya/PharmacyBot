@@ -1,0 +1,120 @@
+/* General body styling */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-image: url('bg.png'); /* Background image */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-color: #e0f7fa; /* Fallback background color */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Chat container styling */
+.chat-container {
+    width: 100%;
+    max-width: 700px;
+    background-color: #ffffff; /* White background for the chat container */
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for a clean look */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat messages container */
+.chat-box {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #0a4456; /* Dark Teal */
+    max-height: 450px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat input area */
+.chat-input {
+    display: flex;
+    padding: 15px;
+    background-color: #3a6173; /* Teal */
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 2px solid #86b9b0; /* Light Teal */
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.chat-input input:focus {
+    border-color: #006b79; /* Darker Teal when focused */
+}
+
+.chat-input button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #042630; /* Medium Teal */
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.chat-input button:hover {
+    background-color: #515454; /* Darker Teal */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Chat messages styling */
+.message {
+    margin: 10px 0;
+    padding: 12px 18px;
+    border-radius: 15px;
+    max-width: 70%;
+    word-wrap: break-word; /* Wrap long text */
+}
+
+.user-message {
+    background-color: #000000; /* Darker Teal */
+    color: white;
+    align-self: flex-end;
+}
+
+.bot-message {
+    background-color: #a3dbdb; /* Light Gray */
+    color: #041421; /* Very Dark Teal */
+    align-self: flex-start;
+}
+
+/* Add smooth scrolling for the chat box */
+.chat-box {
+    scroll-behavior: smooth;
+}
+
+/* Voice button styling */
+#voice-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #1b3754; /* Bright color for voice button */
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#voice-btn:hover {
+    background-color: #405060; /* Darker orange */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}

@@ -1,0 +1,115 @@
+version: "3.1"
+
+stories:
+
+- story: greet and happy user
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: mood_great
+    - action: utter_happy
+
+- story: greet and unhappy user
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: mood_unhappy
+    - action: utter_cheer_up
+    - action: utter_did_that_help
+    - intent: affirm
+    - action: utter_happy
+
+- story: unhappy user not helped
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: mood_unhappy
+    - action: utter_cheer_up
+    - action: utter_did_that_help
+    - intent: deny
+    - action: utter_goodbye
+
+- story: user greets bot
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+- story: user says goodbye
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: user affirms
+  steps:
+    - intent: affirm
+    - action: utter_affirm
+
+- story: user denies
+  steps:
+    - intent: deny
+    - action: utter_deny
+
+- story: user challenges bot
+  steps:
+    - intent: bot_challenge
+    - action: utter_iamabot
+
+- story: user asks about medicine information
+  steps:
+    - intent: ask_medicine_info
+    - action: action_provide_medicine_info
+
+- story: user checks inventory
+  steps:
+    - intent: check_inventory
+    - action: action_check_inventory
+
+- story: user provides prescription
+  steps:
+    - intent: provide_prescription
+    - action: utter_request_prescription
+
+- story: user asks for medicine price
+  steps:
+    - intent: ask_price
+    - action: action_provide_price
+
+- story: user asks about side effects
+  steps:
+    - intent: ask_side_effects
+    - action: action_provide_side_effects
+
+- story: user inquires about delivery
+  steps:
+    - intent: ask_delivery
+    - action: utter_delivery_details
+
+- story: user asks about generic medicines
+  steps:
+    - intent: ask_generic_medicine
+    - action: action_provide_generic_option
+
+- story: user asks about expiry
+  steps:
+    - intent: ask_expiry
+    - action: action_provide_expiry
+
+- story: user asks about return policy
+  steps:
+    - intent: ask_return_policy
+    - action: utter_return_policy
+
+- story: user contacts support
+  steps:
+    - intent: ask_contact_support
+    - action: utter_contact_support
+
+- story: user asks about opening hours
+  steps:
+    - intent: ask_opening_hours
+    - action: utter_opening_hours
+
+- story: user asks for pharmacist assistance
+  steps:
+    - intent: ask_pharmacist
+    - action: utter_connect_pharmacist

@@ -1,0 +1,167 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - hi there
+    - greetings
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you
+    - take care
+    - catch you later
+    - farewell
+    - see you next time
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - absolutely
+    - sure
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - nope
+    - never
+    - not at all
+    - no way
+    - I don't think so
+
+- intent: mood_great
+  examples: |
+    - I'm great
+    - feeling awesome
+    - everything's perfect
+    - fantastic
+    - doing really well
+    - couldn't be better
+
+- intent: mood_unhappy
+  examples: |
+    - I'm feeling down
+    - having a bad day
+    - really sad
+    - not feeling well
+    - feeling off
+    - disappointed
+
+- intent: bot_challenge
+  examples: |
+    - are you real?
+    - are you a chatbot?
+    - who am I speaking with?
+    - are you a person?
+
+- intent: ask_medicine_info
+  examples: |
+    - What are the medicines for headache relief?
+    - Can you suggest a painkiller?
+    - What are the uses of [Cetrizine](medicine_name)?
+    - Is [Antibiotic X](medicine_name) used for infections?
+    - Tell me about [Ibuprofen](medicine_name).
+    - What is [Paracetamol](medicine_name) used for?
+
+- intent: check_inventory
+  examples: |
+    - Do you have [Aspirin](medicine_name) in stock?
+    - Is [Vitamin C](medicine_name) available?
+    - Are there [Cough Syrups](medicine_name) in stock?
+    - Check stock for [Paracetamol](medicine_name).
+    - Can you check availability of [Metformin](medicine_name)?
+
+- intent: provide_prescription
+  examples: |
+    - I have a prescription for [Antibiotics](medicine_name).
+    - Can I upload my prescription for [Painkillers](medicine_name)?
+    - My doctor recommended [Vitamin D](medicine_name).
+    - I need to submit a prescription for [Insulin](medicine_name).
+
+- intent: ask_price
+  examples: |
+    - How much does [Paracetamol](medicine_name) cost?
+    - What's the price of [Ibuprofen](medicine_name)?
+    - Can you tell me the cost of [Amoxicillin](medicine_name)?
+    - Is [Aspirin](medicine_name) expensive?
+    - What is the price range for [Multivitamins](medicine_name)?
+
+- intent: ask_side_effects
+  examples: |
+    - What are the side effects of [Ibuprofen](medicine_name)?
+    - Does [Amoxicillin](medicine_name) have any side effects?
+    - Are there any risks with [Vitamin D](medicine_name)?
+    - Is [Paracetamol](medicine_name) safe to take?
+    - Tell me the adverse effects of [Metformin](medicine_name).
+
+- intent: ask_delivery
+  examples: |
+    - Do you offer home delivery?
+    - Is same-day delivery available?
+    - Can you deliver to [New York](location)?
+    - Do you deliver medicines?
+    - What are your delivery charges?
+    - How long does delivery take?
+
+- intent: ask_generic_medicine
+  examples: |
+    - Do you have a generic version of [Paracetamol](medicine_name)?
+    - Is there a cheaper alternative to [Ibuprofen](medicine_name)?
+    - What are the generic options for [Metformin](medicine_name)?
+    - Can I get an alternative to [Vitamin C](medicine_name)?
+    - Is [Antibiotic X](medicine_name) available in generic form?
+
+- intent: ask_expiry
+  examples: |
+    - What is the expiry date of [Ibuprofen](medicine_name)?
+    - When does [Paracetamol](medicine_name) expire?
+    - Can you tell me the shelf life of [Vitamin C](medicine_name)?
+    - How long is [Amoxicillin](medicine_name) valid for?
+    - Is [Metformin](medicine_name) close to its expiry?
+
+- intent: ask_return_policy
+  examples: |
+    - What is your return policy for medicines?
+    - Can I return unused medicines?
+    - Is there a return policy for [Ibuprofen](medicine_name)?
+    - Do you accept returns for prescription medicines?
+    - Can I get a refund for my order?
+
+- intent: ask_contact_support
+  examples: |
+    - How can I contact support?
+    - I need help with my order.
+    - Can I talk to a pharmacist?
+    - Who can I contact for issues with delivery?
+    - Is there a helpline number?
+
+- intent: ask_opening_hours
+  examples: |
+    - What are your working hours?
+    - Are you open on weekends?
+    - What time do you close?
+    - When does your store open?
+    - Are you available 24/7?
+
+- intent: ask_pharmacist
+  examples: |
+    - Can I talk to a pharmacist?
+    - I need professional advice from a pharmacist.
+    - Is a pharmacist available?
+    - Can you connect me to a pharmacist?
+    - Can a pharmacist recommend a medicine?
+

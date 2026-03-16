@@ -1,0 +1,117 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_medicine_info
+  - check_inventory
+  - provide_prescription
+  - ask_price
+  - ask_side_effects
+  - ask_delivery
+  - ask_generic_medicine
+  - ask_expiry
+  - ask_return_policy
+  - ask_contact_support
+  - ask_opening_hours
+  - ask_pharmacist
+
+entities:
+  - medicine_name
+  - quantity
+
+slots:
+  medicine_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: medicine_name
+
+  quantity:
+    type: text
+    influence_conversation: false
+
+responses:
+  utter_greet:
+    - text: "Hey! How are you?"
+    - text: "Hello! How can I assist you today?"
+
+  utter_goodbye:
+    - text: "Bye! Take care!"
+    - text: "Goodbye! Have a great day!"
+    - text: "See you later!"
+
+  utter_affirm:
+    - text: "Great! Let me know if there’s anything else I can help you with."
+
+  utter_deny:
+    - text: "Alright, let me know if you need help with anything else."
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+  utter_mood_unhappy:
+    - text: "I'm sorry to hear that. How can I make your day better?"
+    - text: "Cheer up! I'm here to help you."
+
+  utter_mood_great:
+    - text: "That's awesome to hear! 😊"
+    - text: "I'm glad you're having a great day!"
+
+  utter_happy:
+    - text: "Great, carry on!"
+
+  utter_bot_challenge:
+    - text: "I’m a virtual assistant here to help you."
+
+  utter_medicine_info:
+    - text: "{medicine_name} is commonly used for treating pain, fever, or related conditions."
+    - text: "Here are some medicines for sleep: Melatonin, Diphenhydramine, and Zolpidem."
+
+  utter_inventory_status:
+    - text: "{medicine_name} is in stock with {quantity} units."
+    - text: "I'm sorry, {medicine_name} is currently out of stock."
+
+  utter_ask_prescription:
+    - text: "Please upload your prescription for {medicine_name}."
+
+  utter_return_policy:
+    - text: "Our return policy allows unopened medicines to be returned within 7 days. Prescription medicines cannot be returned."
+
+  utter_contact_support:
+    - text: "You can contact support at support@pharmcare.com or call 1-800-PHARMCARE."
+
+  utter_delivery_details:
+    - text: "We offer same-day delivery for orders placed before 3 PM. Delivery charges depend on your location."
+
+  utter_opening_hours:
+    - text: "Our pharmacy is open from 8 AM to 8 PM, Monday to Saturday."
+
+  utter_connect_pharmacist:
+    - text: "I’m connecting you to a pharmacist now. Please wait a moment."
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+actions:
+  - action_check_inventory
+  - action_provide_medicine_info
+  - action_provide_price
+  - action_provide_side_effects
+  - action_provide_generic_option
+  - action_provide_expiry
+  - action_request_prescription
+
+session_config:
+  session_expiration_time: 5
+  carry_over_slots_to_new_session: true

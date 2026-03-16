@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmCare</title>
+    <link rel="icon" href="Image 2.jpeg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <div class="message bot-message">
+                👋 I’m PharmCare helper, 
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-btn">Send</button>
+            <button id="voice-btn">🎤 Voice</button>
+        </div>
+    </div>
+    
+    <script>
+        // JavaScript to handle chatbot logic with voice interaction
+
+        // Rasa server URL
+        const rasaServerUrl = "http://localhost:5005/webhooks/rest/webhook";
+
+        // Initialize speech recognition and synthesis
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        const synth = window.speechSynthesis;
+
+        // Function to send a message to Rasa server
+        async function sendMessage(message) {
+            displayMessage("user", message); // Display user message
+
+            // Send message to Rasa server
+            const response = await fetch(rasaServerUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ sender: "user", message: message }),
+            });
+
+            // Handle bot responses
+            const botResponses = await response.json();
+            botResponses.forEach((res) => {
+                displayMessage("bot", res.text); // Display bot message
+                speak(res.text); // Speak bot response
+            });
+        }
+
+        // Function to display messages in the chat box
+        function displayMessage(sender, message) {
+            const chatBox = document.getElementById("chat-box");
+            const messageDiv = document.createElement("div");
+            messageDiv.classList.add("message");
+            messageDiv.classList.add(sender === "bot" ? "bot-message" : "user-message");
+            messageDiv.textContent = message;
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to the latest message
+        }
+
+        // Function to handle speech recognition (voice input)
+        function startVoice() {
+            recognition.start();
+        }
+
+        // Handle speech recognition results
+        recognition.onresult = (event) => {
+            const voiceInput = event.results[0][0].transcript; // Get recognized text
+            sendMessage(voiceInput); // Send recognized text to the chatbot
+        };
+
+        // Convert bot response to speech
+        function speak(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            synth.speak(utterance);
+        }
+
+        // Event listener for the "Send" button
+        document.getElementById("send-btn").addEventListener("click", () => {
+            const userInput = document.getElementById("user-input").value.trim();
+            if (userInput) {
+                sendMessage(userInput);
+                document.getElementById("user-input").value = ""; // Clear input field
+            }
+        });
+
+        // Event listener for the "Voice" button
+        document.getElementById("voice-btn").addEventListener("click", startVoice);
+    </script>
+</body>
+</html>

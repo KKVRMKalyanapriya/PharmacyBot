@@ -1,0 +1,88 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Greet the user anytime the user says hello
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Respond when the user challenges the bot
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Respond to a user asking for medicine information
+  steps:
+  - intent: ask_medicine_info
+  - action: action_provide_medicine_info
+
+- rule: Respond to inventory queries
+  steps:
+  - intent: check_inventory
+  - action: action_check_inventory
+
+- rule: Ask the user for their prescription if needed
+  steps:
+  - intent: provide_prescription
+  - action: utter_request_prescription
+
+- rule: Respond to price inquiries
+  steps:
+  - intent: ask_price
+  - action: action_provide_price
+
+- rule: Respond to side effect inquiries
+  steps:
+  - intent: ask_side_effects
+  - action: action_provide_side_effects
+
+- rule: Respond to delivery-related questions
+  steps:
+  - intent: ask_delivery
+  - action: utter_delivery_details
+
+- rule: Respond to generic medicine queries
+  steps:
+  - intent: ask_generic_medicine
+  - action: action_provide_generic_option
+
+- rule: Respond to medicine expiry inquiries
+  steps:
+  - intent: ask_expiry
+  - action: action_provide_expiry
+
+- rule: Respond to return policy inquiries
+  steps:
+  - intent: ask_return_policy
+  - action: utter_return_policy
+
+- rule: Provide support contact details
+  steps:
+  - intent: ask_contact_support
+  - action: utter_contact_support
+
+- rule: Respond to inquiries about opening hours
+  steps:
+  - intent: ask_opening_hours
+  - action: utter_opening_hours
+
+- rule: Connect user to a pharmacist
+  steps:
+  - intent: ask_pharmacist
+  - action: utter_connect_pharmacist
+
+- rule: Cheer up the user if they're unhappy
+  steps:
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+
+- rule: Congratulate the user if they're happy
+  steps:
+  - intent: mood_great
+  - action: utter_happy
